@@ -93,7 +93,7 @@ public class BlinkSelectInDemo {
         tableEnvironment.executeSql("INSERT INTO print" +
                 "   SELECT rel.`date`,count(weibo_status.mid) FROM rel_brand_commodity_weibo_status AS rel" +
                 "   JOIN weibo_status FOR SYSTEM_TIME AS OF rel.proctime" +
-                "   ON rel.mid = weibo_status.mid " +
+                "   ON rel.`date` = weibo_status.`date` AND rel.mid = weibo_status.mid" +
                 "   JOIN weibo_user FOR SYSTEM_TIME AS OF rel.proctime" +
                 "   ON rel.uid = weibo_user.id group by rel.`date`");
     }
