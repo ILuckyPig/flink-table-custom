@@ -1,0 +1,8 @@
+<yandex>
+    <zookeeper>
+        <node>
+            <host>172.19.0.2</host>
+            <port>2181</port>
+        </node>
+    </zookeeper>
+</yandex>

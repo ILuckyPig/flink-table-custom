@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+    zookeeper:
+        image: wurstmeister/zookeeper
+        hostname: zookeeper1
+        ports:
+          - "2181:2181"
+    clickhouse1:
+        image: yandex/clickhouse-server
+        hostname: clickhouse1
+        ports:
+            - "9000:9000"
+            - "8123:8123"
+        expose:
+            - "9000"
+            - "8123"
+        volumes:
+            - E:/Software/docker/clickhouse/config_1.xml:/etc/clickhouse-server/config.xml
+        ulimits:
+            nofile:
+                soft: 262144
+                hard: 262144
+
+    clickhouse2:
+        image: yandex/clickhouse-server
+        hostname: clickhouse2
+        ports:
+            - "9001:9000"
+            - "8124:8123"
+        expose:
+            - "9000"
+            - "8123"
+        volumes:
+            - E:/Software/docker/clickhouse/config_2.xml:/etc/clickhouse-server/config.xml
+            - E:/Software/docker/clickhouse/zookeeper.xml:/root/zookeeper.xml
+        ulimits:
+            nofile:
+                soft: 262144
+                hard: 262144

@@ -1,0 +1,99 @@
+<yandex>
+    <remote_servers>
+        <cis_cluster>
+            <shard>
+                <replica>
+                    <host>idc-mad-st-app-014</host>
+                    <port>9000</port>
+                    <user>default</user>
+                </replica>
+            </shard>
+            <shard>
+                <replica>
+                    <host>idc-mad-st-app-015</host>
+                    <port>9000</port>
+                    <user>default</user>
+                </replica>
+            </shard>
+            <shard>
+                <replica>
+                    <host>idc-mad-st-app-016</host>
+                    <port>9000</port>
+                    <user>default</user>
+                </replica>
+            </shard>
+            <shard>
+                <replica>
+                    <host>idc-mad-st-app-017</host>
+                    <port>9000</port>
+                    <user>default</user>
+                </replica>
+            </shard>
+            <shard>
+                <replica>
+                    <host>idc-mad-st-app-018</host>
+                    <port>9000</port>
+                    <user>default</user>
+                </replica>
+            </shard>
+            <shard>
+                <replica>
+                    <host>idc-mad-st-app-019</host>
+                    <port>9000</port>
+                    <user>default</user>
+                </replica>
+            </shard>
+        </cis_cluster>
+        <test_cluster>
+            <shard>
+                <replica>
+                    <host>clickhouse1</host>
+                    <port>9000</port>
+                    <user>default</user>
+                </replica>
+            </shard>
+            <shard>
+                <replica>
+                    <host>clickhouse2</host>
+                    <port>9000</port>
+                    <user>default</user>
+                </replica>
+            </shard>
+        </test_cluster>
+    </remote_servers>
+
+    <max_workers>1</max_workers>
+
+    <settings_pull>
+        <readonly>1</readonly>
+    </settings_pull>
+
+    <settings_push>
+        <readonly>0</readonly>
+    </settings_push>
+
+    <settings>
+        <connect_timeout>3</connect_timeout>
+        <!-- Sync insert is set forcibly, leave it here just in case. -->
+        <insert_distributed_sync>1</insert_distributed_sync>
+    </settings>
+
+    <tables>
+        <table_1>
+            <cluster_pull>test_cluster</cluster_pull>
+            <database_pull>test</database_pull>
+            <table_pull>test</table_pull>
+
+            <cluster_push>cis_cluster</cluster_push>
+            <database_push>test</database_push>
+            <table_push>test</table_push>
+            <engine>
+                ENGINE=MergeTree()
+                PARTITION BY (id) 
+                ORDER BY (id)
+            </engine>
+            <sharding_key>id</sharding_key>
+            <!--where_condition>ID != 0</where_condition-->
+        </table_1>
+    </tables>
+</yandex>
