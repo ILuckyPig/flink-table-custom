@@ -1,4 +1,4 @@
-package com.lu.table.connector.custom.jdbc;
+package com.lu.table.connector.jdbc;
 
 import java.io.Serializable;
 import java.util.Objects;

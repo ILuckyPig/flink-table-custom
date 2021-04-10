@@ -1,4 +1,4 @@
-package com.lu.table.connector.custom.jdbc;
+package com.lu.table.connector.jdbc;
 
 import org.apache.flink.api.java.tuple.Tuple2;
 

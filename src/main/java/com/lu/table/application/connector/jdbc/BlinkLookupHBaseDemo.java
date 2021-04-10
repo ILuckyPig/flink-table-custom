@@ -1,4 +1,4 @@
-package com.lu.table.application;
+package com.lu.table.application.connector.jdbc;
 
 import com.lu.table.function.MidRowKeyFunction;
 import org.apache.flink.configuration.Configuration;

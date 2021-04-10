@@ -1,6 +1,5 @@
-package com.lu.table.connector;
+package com.lu.table.connector.jdbc;
 
-import com.lu.table.connector.custom.jdbc.PartitionColumnHelper;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.junit.Test;
 
