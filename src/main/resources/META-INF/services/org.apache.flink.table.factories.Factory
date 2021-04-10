@@ -1,1 +1,2 @@
-com.lu.table.connector.custom.jdbc.CustomJdbcDynamicTableFactory
+com.lu.table.connector.jdbc.CustomJdbcDynamicTableFactory
+com.lu.table.connector.clickhouse.ClickHouseDynamicTableFactory
